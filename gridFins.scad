@@ -1,4 +1,4 @@
-
+use <MCAD/boxes.scad>
 //Total Shape
 height=20;
 width=35;
@@ -33,8 +33,10 @@ difference() {
 
 
 module box(){
+	
 	difference() {
-		cube([length, width, height]);
+		translate([length/2, width/2, height/2]) 
+			roundedBox([length, width, height], 2, false );
 		subBoxes();
 	}
 }
@@ -73,11 +75,12 @@ module sideDuct(){
 }
 
 module mountHoles() {
-	translate([ -1, thickness + (ductWidth/2) ,thickness]) mountHole();
-	translate([ -1, thickness * 2 + ductWidth/2 + ductWidth ,thickness]) mountHole();
-	translate([ -1, thickness * 3 + ductWidth/2 + ductWidth * 2 ,thickness]) mountHole();
+	holeHeight = 5;
+	translate([ -1, thickness + (ductWidth/2) ,holeHeight]) mountHole();
+	translate([ -1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) mountHole();
+	translate([ -1, thickness * 3 + ductWidth/2 + ductWidth * 2 ,holeHeight]) mountHole();
 	
-	translate([ -1, thickness * 2 + ductWidth/2 + ductWidth ,thickness]) mountHole();
+	translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) mountHole();
 }
 
 module mountHole() {
