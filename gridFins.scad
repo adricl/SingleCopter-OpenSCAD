@@ -1,11 +1,11 @@
 use <MCAD/boxes.scad>
 //Total Shape
-height=20;
+height=15;
 width=35;
 length=100;
 
 //Wall Thickness
-thickness=2;
+thickness=1.5;
 
 ductWidths = width - (thickness*4);
 ductWidth=ductWidths/3;
@@ -22,7 +22,6 @@ subLength = length/3;
 subWidth = width * (2/3);
 $fn=50;
 
-color("red") mountHoles();
 
 difference() {
 	box();
