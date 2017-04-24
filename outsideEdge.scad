@@ -4,8 +4,11 @@ outsideRadius = 2;
 
 height = 5;
 
+centreD = 27.7;
+
 rodLength= -propRadius - outsideRadius - 2;
 
+//$fn=50;
 //comment out before rendering
 
 rods();
@@ -44,8 +47,9 @@ module ousideRim(){
 
 module central_platform(){
 	difference(){
-		cylinder(h=10, d=27.7, center=true);
+		cylinder(h=10, d=centreD, center=true);
 		rods();
+		mountHoles();
 	}
 }
 
@@ -55,6 +59,14 @@ module mountHoles(){
 	
 	zHeight=height/2;
 	angle=90;
+	//Center Holes
+	move( x= centreD/2  - 4,		z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
+	move( x=-centreD/2 - 4, 		z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
+	move( y= centreD/2  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
+	move( y=-centreD/2 + 4, 	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
+
+
+	//Outside Holes
 	move(x=propRadius  - 4,	z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
 	move(x=-propRadius - 4, z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
 	move(y=propRadius  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
@@ -69,10 +81,18 @@ module bottomRodMount(){
 }
 
 module servo(){
-	
-	//TODO: need to fix
-	cube([19.8,8.2,21.2]);
-}
+	difference() {	
+		union() {
+			move(z=14.35, x=-((29.88-21.48)/2), y=( 12-9.45)/2,  ry=90) cube([1.84,  9.45,  29.88]);
+			cube([21.48, 12, 20.1 ]); //body
+		}
+		
+		move(x=-(29.88-21.48)/2 + 2, z=11.35, y=(12)/2)
+			cylinder(h=4, d=2);
+		move(x=21.48 + (29.88-21.48)/2 - 2, z=11.35, y=(12)/2)
+			cylinder(h=4, d=2);
+	}
+}	
 
 module rods(){
 	//3mm x 3mm
