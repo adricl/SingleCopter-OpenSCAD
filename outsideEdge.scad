@@ -8,10 +8,10 @@ centreD = 27.7;
 
 rodLength= -propRadius - outsideRadius - 2;
 
-//$fn=50;
+$fn=50;
 //comment out before rendering
 
-rods();
+//rods();
 
 //servo(false);
 
@@ -79,7 +79,7 @@ module bottomRodMount(){
 	}
 }
 module servoMounts (){
-	copy_move(rz=90) {
+	copy_move(rz=270) {
 		servoMount();
 	}
 }
