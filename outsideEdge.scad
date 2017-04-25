@@ -64,7 +64,7 @@ module mountHoles(){
 	move( x=-centreD/2 - 4, 		z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
 	move( y= centreD/2  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
 	move( y=-centreD/2 + 4, 	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
-
+	
 
 	//Outside Holes
 	move(x=propRadius  - 4,	z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
