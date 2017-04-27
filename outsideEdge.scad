@@ -1,6 +1,8 @@
+use <gridFins.scad>
+
 propRadius = 101.6; //4 inches
 
-outsideRadius = 2; 
+outsideRadius = 3; 
 
 height = 5;
 
@@ -11,15 +13,19 @@ rodLength= -propRadius - outsideRadius - 2;
 $fn=50;
 //comment out before rendering
 
-//rods();
+rods();
 
 //servo(false);
 
+gridFins();
 ////////////////////////////////
 
 outside_frame();
 
 central_platform();
+
+
+
 
 module outside_frame(){
 	difference() {
@@ -128,6 +134,14 @@ module rods(){
 	copy_move(z=bottomZ, rz=90){
 		move(x=rodLength*sin(45) +2, y=rodLength*sin(45) , z=topZ, rz=45) 
 			cube([propRadius * 2 + outsideRadius * 2 + 2 , rodWidthHeight, rodWidthHeight]);
+	}
+}
+
+module gridFins(){
+	copy_move(rz=90){
+		copy_mirror(x=1){
+			move(y=-20, x=96, z=7, ry=180) gridFin();
+		}
 	}
 }
 

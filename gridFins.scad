@@ -1,8 +1,8 @@
 use <MCAD/boxes.scad>
 //Total Shape
 height=15;
-width=35;
-length=100;
+width=40;
+length=80;
 
 //Wall Thickness
 thickness=1.5;
@@ -22,12 +22,15 @@ subLength = length/3;
 subWidth = width * (2/3);
 $fn=50;
 
+gridFin();
 
-difference() {
-	box();
-	ductMiddle();
-	sideDucts();
-	mountHoles();
+module gridFin() {
+	difference() {
+		box();
+		ductMiddle();
+		sideDucts();
+		mountHoles();
+	}
 }
 
 
