@@ -92,7 +92,7 @@ module servoMounts (){
 
 module servoMount(){
 	copy_mirror(y=1) {
-		move(x=-35/2, y=-119, z=11, rx=270)
+		move(x=-35/2, y=-119, z=20, rx=270)
 		difference() {
 			move(z=16, x=35/2, y=35/2) resize(newsize=[34,19,4]) cylinder(h=4, d=35);
 			move(z=0, x=(35 - 29.88)/2, y=(35 - 12)/2) servo(true);
@@ -130,7 +130,7 @@ module rods(){
 	
 	topZ = (height-rodWidthHeight)/2;
 	bottomZ = topZ - rodWidthHeight - 2;
-	
+	echo(bottomZ);
 	copy_move(z=bottomZ, rz=90){
 		move(x=rodLength*sin(45) +2, y=rodLength*sin(45) , z=topZ, rz=45) 
 			cube([propRadius * 2 + outsideRadius * 2 + 2 , rodWidthHeight, rodWidthHeight]);
