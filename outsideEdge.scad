@@ -17,7 +17,7 @@ rods();
 
 //servo(false);
 
-gridFins();
+//gridFins();
 ////////////////////////////////
 
 outside_frame();
@@ -43,6 +43,7 @@ module ousideRim(){
 			servoMounts();
 		}
 		translate([0,0,-17]) cylinder(h=height + 18, r=propRadius);
+		servoSubtracts();
 		difference() {
 			translate([0,0,-16]) cylinder(h=height + 20, r=propRadius + outsideRadius * 4);
 			translate([0,0,-16]) cylinder(h=height + 20, r=propRadius + outsideRadius);
@@ -58,7 +59,6 @@ module central_platform(){
 	}
 }
 
-
 module mountHoles(){
 	//M3 Mount Holes
 	
@@ -72,10 +72,10 @@ module mountHoles(){
 	
 
 	//Outside Holes
-	move(x=propRadius  - 4,	z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
-	move(x=-propRadius - 4, z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
-	move(y=propRadius  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
-	move(y=-propRadius + 4, z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
+//	move(x=propRadius  - 4,	z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
+//	move(x=-propRadius - 4, z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
+//	move(y=propRadius  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
+//	move(y=-propRadius + 4, z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
 }
 
 module bottomRodMount(){
@@ -93,10 +93,19 @@ module servoMounts (){
 module servoMount(){
 	copy_mirror(y=1) {
 		move(x=-35/2, y=-119, z=20, rx=270)
-		difference() {
-			move(z=16, x=35/2, y=35/2) resize(newsize=[34,19,4]) cylinder(h=4, d=35);
+		move(z=16, x=35/2, y=35/2) resize(newsize=[34,19,4]) cylinder(h=4, d=35);
+	}
+}
+
+module servoSubtracts (){
+	copy_move(rz=270) {
+		servoSubtract();
+	}
+}
+module servoSubtract() {
+	copy_mirror(y=1) {
+		move(x=-35/2, y=-119, z=20, rx=270)
 			move(z=0, x=(35 - 29.88)/2, y=(35 - 12)/2) servo(true);
-		}
 	}
 }
 
