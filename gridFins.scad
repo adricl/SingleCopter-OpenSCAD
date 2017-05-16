@@ -24,7 +24,7 @@ $fn=50;
 
 //servoScrewHole();
 
-//move(rz=45) 
+move(rz=45) 
 	gridFin();
 
 //servoMount();
@@ -85,7 +85,7 @@ module sideDuct(){
 module mountHoles() {
 	holeHeight = 5;
 	translate([ -1, thickness + (ductWidth/2) ,holeHeight]) mountHole();
-	translate([ -1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) rotate(a=90, v=[0,1,0]) cylinder(d=2, h=3.5);
+	translate([ -1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) rotate(a=90, v=[0,1,0]) cylinder(d=3.7, h=3.5);
 	translate([ -1, thickness * 3 + ductWidth/2 + ductWidth * 2 ,holeHeight]) mountHole();
 	
 	translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) mountHole();
