@@ -24,7 +24,7 @@ $fn=50;
 
 //servoScrewHole();
 
-move(rz=45) 
+//move(rz=45) 
 	gridFin();
 
 //servoMount();

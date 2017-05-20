@@ -40,13 +40,19 @@ module ousideRim(){
 		union() {
 			bottomRodMount();
 			cylinder(h=height, r=propRadius + outsideRadius);
-			servoMounts();
+			difference(){
+				move(z=-5)servoMounts();
+				translate([0,0,5]) cylinder(h=3, r=propRadius + outsideRadius);
+			}
 		}
 		translate([0,0,-17]) cylinder(h=height + 18, r=propRadius);
-		servoSubtracts();
+		move(z=-5) servoSubtracts();
+		
+		//Cleans up sides
 		difference() {
 			translate([0,0,-16]) cylinder(h=height + 20, r=propRadius + outsideRadius * 4);
 			translate([0,0,-16]) cylinder(h=height + 20, r=propRadius + outsideRadius);
+			
 		}
 	}
 }
