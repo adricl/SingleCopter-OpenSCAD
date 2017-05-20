@@ -68,10 +68,10 @@ module central_platform(){
 module mountHoles(){
 	//M3 Mount Holes
 	
-	zHeight=height/2;
+	zHeight=height/2 - 5; //WE moved the servos down 5
 	angle=90;
 	//Center Holes
-	move( x= centreD/2  - 4,		z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
+	move( x= centreD/2  - 4,		z=zHeight , ry=angle) cylinder(h= height + 2, d=3 );
 	move( x=-centreD/2 - 4, 		z=zHeight, ry=angle) cylinder(h= height + 2, d=3 );
 	move( y= centreD/2  + 4,	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
 	move( y=-centreD/2 + 4, 	z=zHeight, rx=angle) cylinder(h= height + 2, d=3 );
