@@ -13,15 +13,22 @@ rodLength= -propRadius - outsideRadius - 2;
 $fn=50;
 //comment out before rendering
 
-rods();
+//rods();
 
 //servo(false);
 
 //gridFins();
+
+//Servo Mount test
+//difference (){
+//	outside_frame();
+//	move(z=-20, y=-90, x=-150)cube([300,300,40]);
+//}
+
+
 ////////////////////////////////
 
 outside_frame();
-
 central_platform();
 
 
