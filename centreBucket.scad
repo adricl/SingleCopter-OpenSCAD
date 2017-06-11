@@ -49,10 +49,15 @@ module centreMount() {
 module motorMount(){
 	copy_move(rz=90) {
 		copy_mirror(y=1) {
+			
 			move(x=-motorMountWidth/2, y=mountInnerWidth/2 -1, z=mountHeight-motorMountThickness) 
 			cube([motorMountWidth, mountThickness/2 +2,  motorMountThickness+1]);
-			move(x=0, y=mountInnerWidth/2 + motorMountHoleSize/2 + 1 , z=mountHeight-motorMountThickness - screwLength + 1 ) 
+			
+			#move(x=0, y=mountInnerWidth/2 + motorMountHoleSize/2 + 1 , z=mountHeight-motorMountThickness - screwLength + 1 ) 
 			cylinder(h=screwLength + 1, d=motorMountHoleSize);
+			
+			move(x=-nutWidth/2, y=mountInnerWidth/2 -1, z=mountHeight-motorMountThickness - screwLength + 2) 
+			cube([nutWidth, mountThickness/2 +2,  motorMountThickness]);
 		}
 	}
 	
