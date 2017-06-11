@@ -18,7 +18,7 @@ screwLength = 25;
 nutWidth = 5;
 nutHeight= 2.5;
 
-motorDepth = 300;
+motorDepth = 30;
 motorWidthInner = motorMidHoleToHoleWidth - motorMountHoleSize + motorMountWidthFromHole; // Mid mount hole to mid mount hole + rest of hole + 
 
 mountInnerWidth = motorMountMinThickness;
