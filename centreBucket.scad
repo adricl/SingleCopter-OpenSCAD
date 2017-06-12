@@ -47,8 +47,9 @@ module centreMount() {
 }
 
 module motorMount(){
-	copy_move(rz=90) {
+	copy_move(rz=180) {
 		copy_mirror(y=1) {
+			move(rz=45) {
 			//Mount for motor
 			move(x=-motorMountWidth/2, y=mountInnerWidth/2 -1, z=mountHeight-motorMountThickness) 
 			cube([motorMountWidth, mountThickness/2 +2,  motorMountThickness+1]);
@@ -60,6 +61,7 @@ module motorMount(){
 			//Nut holder
 			move(x=-nutWidth/2, y=mountInnerWidth/2 -1, z=mountHeight - motorMountThickness - screwLength + 2) 
 			cube([nutWidth, mountThickness/2 +2,  motorMountThickness]);
+			}
 		}
 	}
 	
