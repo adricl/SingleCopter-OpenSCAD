@@ -26,14 +26,14 @@ mountWidth = motorMountWidthFromHole * 2 + motorMidHoleToHoleWidth + motorMountH
 
 mountThickness = mountWidth - mountInnerWidth;
 echo("Mount Width = ", mountThickness/2, " Inner Width=", mountInnerWidth, " OuterWidth ", mountWidth);
-mountHeight = motorDepth + rodGroupHeight + motorMountThickness + 2;
+mountHeight = motorDepth + rodGroupHeight + motorMountThickness + 4;
 
 //rods();
 
 //motorMount();
 
 difference() {
-	move(z=-2)centreMount();
+	move(z=-4)centreMount();
 	rods();
 }
 
@@ -43,6 +43,7 @@ module centreMount() {
 		cylinder(h= mountHeight, d=mountWidth);
 		move(z=-1) cylinder(h= mountHeight + 2, d=mountInnerWidth);
 		motorMount();
+		wireHole();
 	}
 }
 
@@ -64,8 +65,14 @@ module motorMount(){
 			}
 		}
 	}
-	
-	
+}
+
+module wireHole(){
+	wireHoleWidth = 5;
+	copy_move(rz=90) {
+			move(x=-motorMountWidth/2, y=mountInnerWidth/2 -1, z=mountHeight-motorMountThickness) 
+			cube([wireHoleWidth, mountThickness/2 +2,  motorMountThickness+1]);
+	}	
 }
 
 module rods(){
