@@ -1,8 +1,9 @@
+use <library/Utils.scad>
 use <MCAD/boxes.scad>
 //Total Shape
 height=15;
 width=40;
-length=80;
+length=100;
 
 //Wall Thickness
 thickness=1.5;
@@ -25,8 +26,8 @@ $fn=50;
 //servoScrewHole();
 
 //move(rz=45) 
-	gridFin();
-
+	//gridFin();
+gridFinWithHole();
 //servoMount();
 
 module gridFin() {
@@ -38,6 +39,7 @@ module gridFin() {
 		}
 		translate([ 0, thickness * 2 + ductWidth/2 + ductWidth ,5]) servoScrewHole();
 }
+
 
 module box(){
 	
@@ -89,6 +91,8 @@ module mountHoles() {
 	translate([ -1, thickness * 3 + ductWidth/2 + ductWidth * 2 ,holeHeight]) mountHole();
 	
 	translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) mountHole();
+	
+	
 }
 
 module mountHole() {
@@ -142,18 +146,3 @@ module servoScrewHole () {
 //				cylinder(d= longWidth, h=height);
 //			}
 //}
-
-module copy_mirror(x=0,y=0,z=0) 
-{ 
-    children(); 
-    mirror([x, y, z]) children(); 
-} 
-
-module copy_move(x=0,y=0,z=0,rx=0,ry=0,rz=0) { 
-    children(); 
-    move(x, y, z, rx, ry, rz) children(); 
-} 
-
-module move(x=0, y=0, z=0, rx=0, ry=0, rz=0) { 
-	translate([x,y,z])rotate([rx,ry,rz]) children(); 
-}

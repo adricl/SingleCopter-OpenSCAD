@@ -1,12 +1,15 @@
 // Motor mount for centre of bucket dual copter.
 use <library/Utils.scad>
+use <gridFins.scad>
 $fn=50;
 
+//Rods
 rodSize = 12 + 1; //1 more than the actual for 3d printer tolerances 
-rodLength = 255;
+rodLength = 280;
 rodSeperatorWidth = 2;
 rodGroupHeight = rodSize * 2 + rodSeperatorWidth;
 
+//Motor Mount
 motorMountWidthFromHole = 1;
 motorMountHoleSize = 3 + 1; //1 more than the actual for 3d printer tolerances 
 motorMountThickness = 2.5;
@@ -14,10 +17,12 @@ motorMountWidth = 7 + 1; //1 more than the actual for 3d printer tolerances
 motorMidHoleToHoleWidth = 36;
 motorMountMinThickness = 31;
 
+//Mount Screws
 screwLength = 25;
 nutWidth = 5 + 1; //1 more than the actual for 3d printer tolerances 
 nutHeight= 2.5;
 
+//Motor details
 motorDepth = 30;
 motorWidthInner = motorMidHoleToHoleWidth - motorMountHoleSize + motorMountWidthFromHole; // Mid mount hole to mid mount hole + rest of hole + 
 
@@ -28,7 +33,15 @@ mountThickness = mountWidth - mountInnerWidth;
 echo("Mount Width = ", mountThickness/2, " Inner Width=", mountInnerWidth, " OuterWidth ", mountWidth);
 mountHeight = motorDepth + rodGroupHeight + motorMountThickness + 4;
 
-//rods();
+//Bucket 
+bucketDiameter = 255;
+bucketThickness = 2;
+bucketHeight = rodGroupHeight + 5;
+
+
+rods();
+bucket();
+gridFins();
 
 //motorMount();
 
@@ -73,6 +86,22 @@ module wireHole(){
 			move(x=-motorMountWidth/2, y=mountInnerWidth/2 -1, z=mountHeight-motorMountThickness) 
 			cube([wireHoleWidth, mountThickness/2 +2,  motorMountThickness+1]);
 	}	
+}
+
+module gridFins(){
+	copy_move(rz=90){
+		copy_mirror(x=1){
+			move(y=-20, x=125, z=20, ry=180) gridFin();
+		}
+	}
+}
+
+module bucket(){
+	difference() {
+		cylinder(h=bucketHeight, d= bucketDiameter + bucketThickness);
+		move(z=-1) cylinder(h=bucketHeight+2, d= bucketDiameter);
+		
+	}
 }
 
 module rods(){
