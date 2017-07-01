@@ -14,3 +14,20 @@ Single Copter OpenSCAD Design
 - 1x pdb to supply servos depends on servo voltage. 
 - 1x battery 
 
+
+### SETUP
+https://github.com/mirkix/BBBMINI/blob/master/doc/software/software.md
+http://ardupilot.org/copter/docs/singlecopter-and-coaxcopter.html
+
+
+Impliment this for debugging https://github.com/dogmaphobic/mavesp8266
+
+
+TODO:
+BBBMini Setup:
+
+Get Servo Range
+SERVO1_MIN: the forward flap/servo’s lowest PWM value before it hits its physical limits.
+SERVO1_MAX: the forward flap/servo’s highest PWM value before it hits its physical limits.
+SERVO1_TRIM: the forward flap/servo’s PWM value close to what is required to keep the vehicle from spinning.
+SERVO1_REVERSED: the forward flap/servo’s reverse setting. 0 = servo moves in default direction, 1 to reverse direction of movement.
