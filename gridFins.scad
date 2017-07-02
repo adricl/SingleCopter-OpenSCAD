@@ -26,8 +26,8 @@ $fn=50;
 //servoScrewHole();
 
 //move(rz=45) 
-	//gridFin();
-gridFinWithHole();
+	gridFin();
+//gridFinWithHole();
 //servoMount();
 
 module gridFin() {
@@ -38,6 +38,7 @@ module gridFin() {
 			sideDucts();
 		}
 		translate([ 0, thickness * 2 + ductWidth/2 + ductWidth ,5]) servoScrewHole();
+		mountStrut();
 }
 
 
@@ -93,6 +94,17 @@ module mountHoles() {
 	translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) mountHole();
 	
 	
+}
+
+module mountStrut() {
+	holeHeight = 5;
+	%translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) strut();
+}
+
+module strut() {
+	subtractThickness= thickness +2;
+	//echo(holeSize);
+	rotate(a=90, v=[0,1,0]) cylinder(r=holeSize/2, h=subtractThickness +20 );
 }
 
 module mountHole() {
