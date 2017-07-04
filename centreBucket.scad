@@ -39,15 +39,16 @@ bucketThickness = 2;
 bucketHeight = rodGroupHeight + 5;
 
 
-rods();
-bucket();
-gridFins();
+//rods();
+//bucket();
+//gridFins();
 
 //motorMount();
 
 difference() {
 	move(z=-4)centreMount();
 	rods();
+	gridFins();
 }
 
 
@@ -91,7 +92,7 @@ module wireHole(){
 module gridFins(){
 	copy_move(rz=90){
 		copy_mirror(x=1){
-			move(y=-20, x=125, z=20, ry=180) gridFin();
+			move(y=-20, x=125, z=5, ry=180) gridFin();
 		}
 	}
 }

@@ -98,13 +98,13 @@ module mountHoles() {
 
 module mountStrut() {
 	holeHeight = 5;
-	%translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) strut();
+	translate([ length - thickness - 1, thickness * 2 + ductWidth/2 + ductWidth ,holeHeight]) strut();
 }
 
 module strut() {
 	subtractThickness= thickness +2;
 	//echo(holeSize);
-	rotate(a=90, v=[0,1,0]) cylinder(r=holeSize/2, h=subtractThickness +20 );
+	rotate(a=90, v=[0,1,0]) cylinder(d=4, h=subtractThickness +20 );
 }
 
 module mountHole() {
