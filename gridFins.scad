@@ -6,7 +6,7 @@ width=40;
 length=100;
 
 //Wall Thickness
-thickness=1.5;
+thickness=1;
 
 ductWidths = width - (thickness*4);
 ductWidth=ductWidths/3;
