@@ -101,16 +101,13 @@ module bucket(){
 	difference() {
 		cylinder(h=bucketHeight, d= bucketDiameter + bucketThickness);
 		move(z=-1) cylinder(h=bucketHeight+2, d= bucketDiameter);
-		
 	}
 }
 
 module rods(){
-	angle = 360-45;
-	rodWidthMed =  (rodLength*sin(angle))/2;
-	
+	rotate([0,0,45])
 	copy_move(z=-rodSize - rodSeperatorWidth, rz=90) {
-		move(x=rodWidthMed - rodSize/2, y=rodWidthMed, z=rodGroupHeight/2, rz=angle) 
+		move(x=-rodSize/2, y=-rodLength/2, z=rodGroupHeight/2) 
 			cube([rodSize, rodLength, rodSize]);
-	}
+		}
 }

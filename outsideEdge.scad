@@ -29,7 +29,7 @@ $fn=50;
 ////////////////////////////////
 
 outside_frame();
-central_platform();
+//central_platform();
 
 
 
